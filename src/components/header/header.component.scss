@@ -1,0 +1,21 @@
+@import '../../styles.scss';
+
+.header {
+    height: 60px;
+    background-color: $dark-color;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.header-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.header-icon:hover {
+    animation: spin 4s;
+}
+
+@keyframes spin { 100% { transform:rotate(360deg); } }

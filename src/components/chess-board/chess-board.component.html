@@ -1,3 +1,4 @@
 <div class='chess-board'>
-    <app-chess-cell *ngFor="let pos of cellsPosition" [position]='pos'></app-chess-cell>
+    <app-chess-cell *ngFor="let pos of cellsPosition" [position]='pos' [knightPosition$]='knightPosition$'
+        [highlightedPositions$]='highlightedPositions$' (cellClicked)='updateChosenCell($event)'></app-chess-cell>
 </div>

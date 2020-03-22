@@ -1,2 +1,10 @@
-<span>{{ position.column }}</span>
-<span>{{ position.row }}</span>
+<div
+    class='cell'
+    (click)='click()' 
+    [ngClass]="{ 
+        'highlighted-cell': isHighlighted$ | async,
+        'odd-cell': isOddCell(),
+        'even-cell': !isOddCell()
+    } ">
+<img *ngIf='isKnight$ | async' src='../../assets/horse.png' class='horse-icon' />
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlgebraicPosition } from 'src/model/algebraic-position';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-chess-board',
@@ -10,7 +11,8 @@ export class ChessBoardComponent implements OnInit {
 
   public cellsPosition: AlgebraicPosition[] = [];
 
-  constructor() { }
+  public knightPosition$ = new BehaviorSubject<AlgebraicPosition>(null);
+  public highlightedPositions$ = new BehaviorSubject<AlgebraicPosition[]>([]);
 
   ngOnInit(): void {
     this._generateCells();
@@ -23,7 +25,10 @@ export class ChessBoardComponent implements OnInit {
     rows.forEach(row => {
       columns.forEach(column => this.cellsPosition.push(new AlgebraicPosition(column, row)));
     });
-
   }
-
+    
+  public updateChosenCell(position) {
+    this.knightPosition$.next(position);
+    this.highlightedPositions$.next(this.cellsPosition);
+  }
 }
