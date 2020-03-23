@@ -1,4 +1,4 @@
-export class LocalStorageManager {
+export class LocalStorageService {
     private readonly shouldShowWizardKey = "wizard";
 
     public shouldShowWizard(): boolean {

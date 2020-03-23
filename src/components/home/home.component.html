@@ -1,7 +1,8 @@
 <app-header></app-header>
 
 <div class='chess-board-container'>
-<app-chess-board class='chess-board'></app-chess-board>
+    <app-wizard *ngIf='shouldShowWizard' (allSlidesShown)='wizardShown()'></app-wizard>
+    <app-chess-board class='chess-board'></app-chess-board>
 </div>
 
 <app-footer></app-footer>

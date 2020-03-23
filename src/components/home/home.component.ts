@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageManager } from 'src/services/local-storage-manager';
+import { LocalStorageService } from 'src/services/local-storage-service';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +9,21 @@ import { LocalStorageManager } from 'src/services/local-storage-manager';
 
 export class HomeComponent implements OnInit {
   
-  title = 'knight';
-  private _localStorageManager: LocalStorageManager;
+  public shouldShowWizard = true;
+  private _localStorageManager: LocalStorageService;
 
   ngOnInit(): void {
+    // this.shouldShowWizard = this._localStorageManager.shouldShowWizard(); 
+    this.shouldShowWizard = true;
   }
 
-  constructor(localStorageManager: LocalStorageManager) {
+  constructor(localStorageManager: LocalStorageService) {
     this._localStorageManager = localStorageManager;
+  }
+
+  public wizardShown() {
+    this._localStorageManager.setShowWizard(false);
+    this.shouldShowWizard = this._localStorageManager.shouldShowWizard();
   }
 
 }
