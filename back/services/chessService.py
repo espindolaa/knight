@@ -4,12 +4,12 @@ def getValidPositions(algebraicPosition):
     matrix = getDefaultMatrix()
     column = getMatrixColumnFromAlgebraic(algebraicPosition)
     row = getMatrixRoxFromAlgebraic(algebraicPosition)
-    return findPossibleMoves(matrix, column, row, 2)
+    numberOfMoves = getNumberofMoves()
+    return findPossibleMoves(matrix, column, row, numberOfMoves)
 
 def findPossibleMoves(board, column, row, amoutOfMoves):
     positions = []
     possibleMovements = getPossibleMovements()
-    print(column, row)
 
     for movement in possibleMovements:
         newColumn = column + movement[0]
@@ -24,8 +24,6 @@ def findPossibleMoves(board, column, row, amoutOfMoves):
     for pos in positions:
         nextPositions.append(findPossibleMoves(board, pos[0], pos[1], amoutOfMoves - 1))
     return nextPositions
-
-
 
 def isInsideBoard(column, row):
     return column >= 0 and column <= 7 and row >= 0 and row <= 7
@@ -42,3 +40,6 @@ def getMatrixColumnFromAlgebraic(algebraicPosition):
 
 def getMatrixRoxFromAlgebraic(algebraicPosition):
     return algebraicPosition.row - 1
+
+def getNumberofMoves():
+    return 2
