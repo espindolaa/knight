@@ -16,7 +16,10 @@ class AlgebraicPosition:
         return isValidLetter
 
     def validateRow(row):
-        return row >= 1 and row <= 8
+        try:
+            return row >= 1 and row <= 8
+        except TypeError:
+            raise ValueError("Row needs to be a integer")
 
     def columnToInteger(column):
         if(not AlgebraicPosition.validateColumn(column)):
