@@ -7,7 +7,7 @@ If you want to contribute to this repo, take a look at the guidelines bellow:
 - Node 8+
 - NPM
 
-After installing NPM, you can simply run a _npm install_ in the root folder to get all required packages.
+After installing NPM, you can simply run a `npm install` in the root folder to get all required packages.
 
 ## Backend:
 - Python 3
