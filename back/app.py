@@ -9,4 +9,4 @@ def possible_moves(position):
     if (len(position) != 2) :
         raise ValueError("Only positions in Algebraic Notation are accepted. (e.g. B3)")
     algebraicPosition = AlgebraicPosition(position[0], int(position[1]))
-    return jsonify(getValidPositions(algebraicPosition))
+    return jsonify(list(getValidPositions(algebraicPosition)))
