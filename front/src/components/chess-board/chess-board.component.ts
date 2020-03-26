@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlgebraicPosition } from 'src/model/algebraic-position';
 import { BehaviorSubject } from 'rxjs';
+import { ChessService } from 'src/services/chess-service';
 
 @Component({
   selector: 'app-chess-board',
@@ -9,6 +10,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ChessBoardComponent implements OnInit {
 
+  constructor(private chessService: ChessService) {}
+
   public cellsPosition: AlgebraicPosition[] = [];
 
   public knightPosition$ = new BehaviorSubject<AlgebraicPosition>(null);
@@ -16,6 +19,11 @@ export class ChessBoardComponent implements OnInit {
 
   ngOnInit(): void {
     this._generateCells();
+    this.chessService.positions$.subscribe(
+      pos => {
+        const cells = pos.map(p => this.cellsPosition.find(c => c.column.toLowerCase() === p.column.toLowerCase() && c.row === p.row));
+        this.highlightedPositions$.next(cells)
+      });
   }
 
   private _generateCells() {
@@ -29,6 +37,6 @@ export class ChessBoardComponent implements OnInit {
     
   public updateChosenCell(position) {
     this.knightPosition$.next(position);
-    this.highlightedPositions$.next(this.cellsPosition);
+    this.chessService.getPossibleMoves(position);
   }
 }

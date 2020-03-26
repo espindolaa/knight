@@ -1,5 +1,5 @@
 .highlighted-cell {
-    outline: 5px solid rgb(21, 120, 220);
+    background-color: pink !important;
 }
 
 .cell {
@@ -9,11 +9,11 @@
 }
 
 .odd-cell {
-    background-color: rgb(115, 90, 90);
+    background-color: wheat;
 }
 
 .even-cell {
-    background-color: wheat;
+    background-color: rgb(115, 90, 90);
 }
 
 .horse-icon {

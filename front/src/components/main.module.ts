@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HomeComponent } from './home/home.component';
 import { ChessService } from 'src/services/chess-service';
@@ -21,6 +22,7 @@ import { WizardComponent } from './wizard/wizard.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule
   ],
   providers: [
     {
@@ -28,6 +30,9 @@ import { WizardComponent } from './wizard/wizard.component';
     },
     {
       provide: ChessService
+    },
+    {
+      provide: HttpClientModule
     }
   ],
   bootstrap: [HomeComponent]
