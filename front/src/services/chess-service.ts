@@ -2,6 +2,7 @@ import { AlgebraicPosition } from 'src/model/algebraic-position';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { environment } from '../environments/environment'
 
 @Injectable()
 export class ChessService {
@@ -12,7 +13,7 @@ export class ChessService {
     public positions$ = this._positions$.asObservable();
 
     public getPossibleMoves(startingPosition: AlgebraicPosition): Observable<AlgebraicPosition[]> {
-        const request = this.http.get(`http://localhost:5000/api/v1/possibleMoves/${startingPosition.column}${startingPosition.row}`);
+        const request = this.http.get(`${environment.possibleMovesURL}${startingPosition.column}${startingPosition.row}`);
         request.subscribe(v => this._positions$.next(this.mapToAlgebraic(v)));
         return this.positions$;
     }
