@@ -7,3 +7,7 @@ In the _service_, some business logic and backend calls are stored. The interfac
 In the _models_, objects used throughout the application are declared.  
 
 There is also a _assets_ folder, that stores images and files used in the app.
+
+# Starting the client
+
+After installing the required packages with `npm install`, a simple `ng serve` in the console should set up the client.
