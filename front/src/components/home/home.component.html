@@ -1,8 +1,8 @@
 <app-header></app-header>
-
 <div class='chess-board-container'>
     <app-wizard *ngIf='shouldShowWizard' (allSlidesShown)='wizardShown()'></app-wizard>
     <app-chess-board class='chess-board'></app-chess-board>
 </div>
 
+<img src="../../assets/info.png" class='help-icon' (click)='enableWizard()' />
 <app-footer></app-footer>

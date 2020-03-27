@@ -13,8 +13,7 @@ export class HomeComponent implements OnInit {
   private _localStorageManager: LocalStorageService;
 
   ngOnInit(): void {
-    // this.shouldShowWizard = this._localStorageManager.shouldShowWizard(); 
-    this.shouldShowWizard = true;
+    this.shouldShowWizard = this._localStorageManager.shouldShowWizard();
   }
 
   constructor(localStorageManager: LocalStorageService) {
@@ -24,6 +23,10 @@ export class HomeComponent implements OnInit {
   public wizardShown() {
     this._localStorageManager.setShowWizard(false);
     this.shouldShowWizard = this._localStorageManager.shouldShowWizard();
+  }
+
+  public enableWizard() {
+    this.shouldShowWizard = true;
   }
 
 }
