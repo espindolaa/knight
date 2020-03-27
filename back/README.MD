@@ -8,6 +8,11 @@ In _tests_, there are unit tests that can be run with a simple `python tests.py`
 
 A next step would be a _repository_ layer, where persistence could be implemented.
 
+# Starting the server
+
+For development, you should set the `FLASK_ENV` environment variable to `development`.  
+After that, `python -m flask run` in the root directory should start the server.
+
 # Algorithm
 
 The algorithm for path detection implements simple operations in a matrix recursively.  
